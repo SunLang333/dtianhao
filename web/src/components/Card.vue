@@ -10,13 +10,14 @@
       target="_blank"
       :title="title"
     >
-
-</v-card>
+    <MarkdownViewer
+        :markdownUrl="markdownUrl"
+    />
+    </v-card>
     <br>
   </template>
   
   <script>
-import MarkdownViewer from './MarkdownViewer.vue';
 
   export default {
     name: 'CustomCard',
@@ -31,7 +32,11 @@ import MarkdownViewer from './MarkdownViewer.vue';
       },
       href: {
         type: String,
-        default: 'https://github.com/vuetifyjs/vuetify/'
+        default: 'https://github.com'
+      },
+      markdownUrl: {
+        type: String,
+        default: 'https://github.com/markdown-it/markdown-it/raw/refs/heads/master/README.md'
       }
     }
   }

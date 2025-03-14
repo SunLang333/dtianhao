@@ -1,14 +1,15 @@
 <template>
-  <div v-html="renderedMarkdown"></div>
+  <div v-if="!error" v-html="renderedMarkdown"></div>
+  <div v-else class="error-message">Error: {{ error }}</div>
 </template>
 
 <script>
-import { marked } from 'marked';
+import MarkdownIt from 'markdown-it';
 
 export default {
   name: 'MarkdownViewer',
   props: {
-    markdownContent: {
+    markdown: {
       type: String,
       default: '',
     },
@@ -19,33 +20,34 @@ export default {
   },
   data() {
     return {
-      renderedMarkdown: '',
+      error: null,
+      markdownContent: '',
+      md: null,
     };
   },
-  watch: {
-    markdownContent: {
-      immediate: true,
-      handler(newVal) {
-        if (newVal) {
-          this.renderedMarkdown = marked(newVal);
+  async mounted() {
+    this.md = new MarkdownIt();
+    if (this.markdownUrl) {
+      try {
+        const response = await fetch(this.markdownUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      },
-    },
-    markdownUrl: {
-      immediate: true,
-      async handler(newVal) {
-        if (newVal) {
-          try {
-            const response = await fetch(newVal);
-            const markdown = await response.text();
-            this.renderedMarkdown = marked(markdown);
-          } catch (error) {
-            console.error('Error fetching markdown:', error);
-            this.renderedMarkdown = 'Error loading markdown content.';
-          }
-        }
-      },
-    },
+        this.markdownContent = await response.text();
+      } catch (error) {
+        this.error = error.message;
+      }
+    } else {
+      this.markdownContent = this.markdown;
+    }
+  },
+  computed: {
+    renderedMarkdown() {
+      if (this.md && this.markdownContent) {
+        return this.md.render(this.markdownContent);
+      }
+      return '';
+    }
   },
 };
 </script>
