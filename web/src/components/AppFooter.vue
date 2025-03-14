@@ -1,32 +1,32 @@
 <template>
   <v-layout class="overflow-visible" style="height: 56px;">
     <v-bottom-navigation
-      v-model="value"
       color="teal"
       grow
     >
-      <v-btn>
-        <v-icon>mdi-history</v-icon>
+      <router-link to="/">
+        <v-btn>
+          <v-icon>mdi-home</v-icon>
 
-        Recents
-      </v-btn>
+          Recents
+        </v-btn>
+      </router-link>
 
-      <v-btn>
-        <v-icon>mdi-file-document</v-icon>
+      <router-link to="/resume">
+        <v-btn>
+          <v-icon>mdi-file-document-edit</v-icon>
 
-        Resume
-      </v-btn>
-
+          Resume
+        </v-btn>
+      </router-link>
+      <router-link to="/contact">
       <v-btn>
         <v-icon>mdi-account-plus</v-icon>
 
-        Contact Me
+        Hire!Me!
       </v-btn>
+    </router-link>
     </v-bottom-navigation>
   </v-layout>
 </template>
-<script setup>
-  import { ref } from 'vue'
-
-  const value = ref(1)
-</script>
+<script setup></script>

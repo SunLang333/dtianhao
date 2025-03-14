@@ -1,8 +1,6 @@
 <template>
 <Card 
-  title="github"
-  subtitle="subtitle"
-  href="https://www.google.com"
+  href="https://github.com/SunLang333/kxo302"
   markdownUrl="https://raw.githubusercontent.com/SunLang333/kxo302/refs/heads/main/README.md"
   />
 </template>
