@@ -1,7 +1,5 @@
 # Tianhao Dong
 
-**Tel:** +86-16712138801, +1-(209)683-7404
-
 **E-mail:** sunlang333@gmail.com
 
 ---
