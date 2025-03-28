@@ -8,3 +8,10 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+}

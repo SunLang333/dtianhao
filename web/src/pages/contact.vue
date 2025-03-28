@@ -1,3 +1,7 @@
+<script>
+import EventCard from '@/components/EventCard.vue';
+</script>
+
 <template>
-    <h1>Hello!</h1>
+    <EventCard />
 </template>
