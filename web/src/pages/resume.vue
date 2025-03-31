@@ -1,6 +1,6 @@
 <template>
     <Sheets
-    markdownUrl="https://raw.githubusercontent.com/SunLang333/dtianhao/refs/heads/main/README.md"
+    markdownUrl="/README.md"
     />
 </template>
 <script>

@@ -5,6 +5,10 @@
       markdownUrl="/kxo302.md"
     />
     <Card
+      href="https://github.com/SunLang333/tradingeconomics"
+      markdownUrl="/tradingeconomics.md"
+    />
+    <Card
       href="https://github.com/SunLang333/WebLLM_DeepseekR1"
       markdownUrl="/WebLLM_DeepseekR1.md"
     />
